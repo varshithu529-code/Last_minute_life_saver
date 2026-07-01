@@ -1,4 +1,8 @@
-const API_BASE = import.meta.env.VITE_API_URL || '/v1';
+const rawApiBase = import.meta.env.VITE_API_URL || '/v1';
+const normalizedApiBase = rawApiBase.replace(/\/$/, '');
+const API_BASE = normalizedApiBase.endsWith('/v1')
+  ? normalizedApiBase
+  : `${normalizedApiBase}/v1`;
 
 async function request(path, options = {}) {
   const res = await fetch(`${API_BASE}${path}`, {

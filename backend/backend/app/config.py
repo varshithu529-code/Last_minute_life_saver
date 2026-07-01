@@ -92,7 +92,11 @@ class Settings(BaseSettings):
     rate_limit_per_minute: int = 60
 
     # CORS
-    cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]
+    cors_origins: list[str] = [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://jolly-smoke-02d835200.7.azurestaticapps.net",
+    ]
 
 
 @lru_cache
